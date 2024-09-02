@@ -15,5 +15,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
-        
+        run: mvn -B package --file pom.xml 
+      - name: setup the sonarqube 
+        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
+      
