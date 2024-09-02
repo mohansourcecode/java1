@@ -30,3 +30,6 @@ jobs:
           context: .
           push: true
           tags: ${{secrets.docker_username}}/mohanjava:1.0
+      - name: perform the trivy scan 
+        run: |
+          trivy image ${{secrets.docker_username}}/mohanjava:1.0
