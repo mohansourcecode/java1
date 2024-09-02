@@ -47,6 +47,11 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
           category: my-analysis-tool
+      - name: Upload SARIF results as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: trivy-results
+          path: trivy-results.sarif
 
       - name: bulding and pushing the docker image to the dockerr GitHub1
         uses: docker/build-push-action@v5
