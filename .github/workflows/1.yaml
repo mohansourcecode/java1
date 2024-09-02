@@ -43,6 +43,7 @@ jobs:
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+          category: my-analysis-tool
 
       - name: bulding and pushing the docker image to the dockerr GitHub1
         uses: docker/build-push-action@v5
