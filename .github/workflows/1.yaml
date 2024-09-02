@@ -31,6 +31,10 @@ jobs:
         with:
           username: ${{secrets.docker_username}}
           password: ${{secrets.docker_password}} 
+      - name: Set up CodeQL
+        uses: github/codeql-action/setup@v3
+
+    
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
