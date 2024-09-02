@@ -27,7 +27,10 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
           trivy-config: trivy.yaml
+      
 
       - name: docker login1
         uses: docker/login-action@v3
