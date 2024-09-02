@@ -28,9 +28,13 @@ jobs:
           scan-type: 'fs'
           scan-ref: '.'
           format: 'sarif'
-          output: 'trivy-results.sarif'
+          output: 'trivy-files.sarif'
           trivy-config: trivy.yaml
-      
+      - name: Upload SARIF results as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: trivy-fileresult
+          path: trivy-files.sarif
 
       - name: docker login1
         uses: docker/login-action@v3
