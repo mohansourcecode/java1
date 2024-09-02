@@ -1,9 +1,9 @@
-name: peforming rust project checkout 
+name: peforming java project checkout 
 
 on: [push]
 
 jobs:
-  rust-project:
+  java-project:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository 
@@ -21,13 +21,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_QUBE_TOKEN }}
           SONAR_HOST_URL: https://54.243.1.50:9000
-      - name: SonarQube Scan
         run: |
          sonar-scanner -X \
           -Dsonar.projectKey=java \
           -Dsonar.sources=src \
           -Dsonar.host.url=https://54.243.1.50:9000 \
-          -Dsonar.login=${{ secrets.SONAR_QUBE_TOKEN  }}
+          -Dsonar.login=${{ secrets.SONAR_QUBE_TOKEN}}
 
 
 
