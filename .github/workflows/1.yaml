@@ -21,6 +21,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_QUBE_TOKEN }}
           SONAR_HOST_URL: http://54.243.1.50:9000
+          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
       - name: Run SonarQube Scanner
         run: |
           sonar-scanner \
