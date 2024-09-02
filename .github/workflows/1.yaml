@@ -47,7 +47,7 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
-      - name: bulding and pushing the docker image to the dockerr GitHub
+      - name: bulding and pushing the docker image to the dockerr GitHub1
         uses: docker/build-push-action@v5
         with:
           context: .
