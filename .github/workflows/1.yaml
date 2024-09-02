@@ -40,6 +40,6 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: 'docker.io/my-organization/${{secrets.docker_username}}/mohanjava:1.0'
+          image-ref: 'docker.io/mohan14242/${{secrets.docker_username}}/mohanjava:1.0'
           format: 'sarif'
           output: 'trivy-results.sarif'
