@@ -41,6 +41,12 @@ jobs:
         with:
           username: ${{secrets.docker_username}}
           password: ${{secrets.docker_password}} 
+      - name: bulding and pushing the docker image to the dockerr GitHub1
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: flase
+          tags: ${{secrets.docker_username}}/mohanjava:1.0
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.20.0
         with:
@@ -48,22 +54,10 @@ jobs:
           format: 'sarif'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'
-          category: my-analysis-tool
+      
       - name: Upload SARIF results as artifact
         uses: actions/upload-artifact@v3
         with:
           name: trivy-results
           path: trivy-results.sarif
-
-      - name: bulding and pushing the docker image to the dockerr GitHub1
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{secrets.docker_username}}/mohanjava:1.0
   
