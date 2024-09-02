@@ -19,5 +19,5 @@ jobs:
       - name: setup the sonarqube 
         uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
         with:
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          sonar-token: ${{ secrets.SONAR_QUBE_TOKEN }}
       
