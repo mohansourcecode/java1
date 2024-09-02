@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Run Trivy vulnerability scanner in fs mode
+      - name: Run Trivy vulnerability scanner in fs mod
         uses: aquasecurity/trivy-action@0.20.0
         with:
           scan-type: 'fs'
