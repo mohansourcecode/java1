@@ -23,5 +23,5 @@ jobs:
         with:
           
           args:
-            -Dsonar.projectKey=java
+            -Dsonar.projectKey=java1
             -Dsonar.organization=mohansourcecode
