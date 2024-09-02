@@ -16,16 +16,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v1
-        with:
-          entryPoint: sonar-scanner
-          args: |
-            -Dsonar.projectKey=java
-            -Dsonar.sources=src
-            -Dsonar.host.url=https://54.243.1.50:9000
-            -Dsonar.login=${{ secrets.SONAR_QUBE_TOKEN }}
-          projectBaseDir: .
+      - name: Analyze with SonarCloud
+        uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216
         env:
-          SONAR_HOST_URL: https://54.243.1.50:9000
-          SONAR_TOKEN: ${{ secrets.SONAR_QUBE_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_QUBE_TOKEN }}   
+        with:
+          
+          args:
+            -Dsonar.projectKey=java
+            -Dsonar.organization=mohansourcecode
