@@ -2,6 +2,9 @@ name: Perform Java Project Checkout
 
 on: [push]
 
+permissions:
+  contents: read  # Required for checking out code
+  security-events: write 
 jobs:
   java-project:
     runs-on: ubuntu-latest
