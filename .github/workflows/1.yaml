@@ -25,6 +25,7 @@ jobs:
           scan-type: 'fs'
           scan-ref: '.'
           trivy-config: trivy.yaml
+          
       - name: docker login1
         uses: docker/login-action@v3
         with:
@@ -37,5 +38,4 @@ jobs:
           push: true
           tags: ${{secrets.docker_username}}/mohanjava:1.0
       - name: perform the trivy scan 
-        run: |
-          trivy image ${{secrets.docker_username}}/mohanjava:1.0
+        run: trivy image ${{secrets.docker_username}}/mohanjava:1.0
